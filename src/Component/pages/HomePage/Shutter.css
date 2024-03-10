@@ -1,0 +1,19 @@
+/* Shutter.css */
+@keyframes beer-bubbles {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+.beer-bubble {
+  animation: beer-bubbles 2s ease-in-out infinite;
+}

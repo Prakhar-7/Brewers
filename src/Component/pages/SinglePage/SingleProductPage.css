@@ -1,0 +1,12 @@
+@keyframes rotate-once {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-rotate-once {
+    animation: rotate-once 0.5s ease-out forwards; /* Adjust duration (0.5s) and timing function (ease-out) */
+}
