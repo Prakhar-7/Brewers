@@ -7,7 +7,7 @@ const Shutter = ({ onClose }) => {
     const timer = setTimeout(() => {
       setIsVisible(false)
       onClose()
-    }, 700) // Change the duration as needed
+    }, 700) 
 
     return () => clearTimeout(timer)
   }, [onClose])
@@ -27,7 +27,6 @@ const Shutter = ({ onClose }) => {
           <div className="animate-pulse bg-gray-600 rounded-full h-28 w-28"></div>
         </div>
 
-        {/* Description */}
         <h1 className="text-4xl font-bold pt-5 mb-4">Welcome to Brewers</h1>
         <p className="text-lg">Discover a wide selection of amazing beers!</p>
       </div>

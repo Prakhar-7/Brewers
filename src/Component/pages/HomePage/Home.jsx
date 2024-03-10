@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getDetails } from '../../../slices/ProductSlice/ProductSlice'
 import Navbar from '../../navbar/Navbar'
 import { Link } from 'react-router-dom'
-import Shutter from './Shutter' // Import the Shutter component
+import Shutter from './Shutter' 
 
 const Home = () => {
   const dispatch = useDispatch()
   const { product } = useSelector((store) => store.beer)
   const [searchQuery, setSearchQuery] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [showHomepage, setShowHomepage] = useState(false) // State to control homepage visibility
+  const [showHomepage, setShowHomepage] = useState(false) 
 
   useEffect(() => {
     dispatch(getDetails())
@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowHomepage(true)
-    }, 2000) // Delay before showing the homepage content
+    }, 2000) 
   }, [])
 
   const handleSearch = (e) => {
@@ -27,16 +27,16 @@ const Home = () => {
     setSearchQuery(query)
 
     const filteredProducts = product.filter((product) => {
-      // Case-insensitive search for product name, tagline, and first_brewed
+      
       const productName = product.name.toLowerCase()
       const tagline = product.tagline.toLowerCase()
       const firstBrewed = product.first_brewed.toLowerCase()
 
-      // Perform a fuzzy search for name and tagline
+      
       const nameMatch = productName.includes(query)
       const taglineMatch = tagline.includes(query)
 
-      // Exact match for first_brewed
+      
       const brewedMatch = firstBrewed === query
 
       return nameMatch || taglineMatch || brewedMatch
@@ -55,8 +55,7 @@ const Home = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <Shutter onClose={() => setShowHomepage(true)} />{' '}
-      {/* Render the Shutter component */}
-      {showHomepage && ( // Conditionally render the homepage content
+      {showHomepage && ( 
         <>
           <Navbar />
           <div className="container mx-auto px-4 py-12">

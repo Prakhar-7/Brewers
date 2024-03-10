@@ -8,5 +8,5 @@
 }
 
 .animate-rotate-once {
-    animation: rotate-once 0.5s ease-out forwards; /* Adjust duration (0.5s) and timing function (ease-out) */
+    animation: rotate-once 0.5s ease-out forwards; 
 }
