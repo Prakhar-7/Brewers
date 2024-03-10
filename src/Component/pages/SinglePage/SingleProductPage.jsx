@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import "./SingleProductPage.css"
@@ -8,6 +8,9 @@ const SingleProductPage = () => {
   const { product } = useSelector((store) => store.beer)
   const beerProduct = product.find((item) => item.id == productId)
   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="bg-gray-800 min-h-screen">
