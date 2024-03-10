@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getDetails } from '../../../slices/ProductSlice/ProductSlice'
 import Navbar from '../../navbar/Navbar'
 import { Link } from 'react-router-dom'
-import Shutter from './Shutter' 
+import Shutter from './Shutter'
 
 const Home = () => {
   const dispatch = useDispatch()
   const { product } = useSelector((store) => store.beer)
   const [searchQuery, setSearchQuery] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [showHomepage, setShowHomepage] = useState(false) 
+  const [showHomepage, setShowHomepage] = useState(false)
 
   useEffect(() => {
     dispatch(getDetails())
@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowHomepage(true)
-    }, 2000) 
+    }, 2000)
   }, [])
 
   const handleSearch = (e) => {
@@ -27,16 +27,13 @@ const Home = () => {
     setSearchQuery(query)
 
     const filteredProducts = product.filter((product) => {
-      
       const productName = product.name.toLowerCase()
       const tagline = product.tagline.toLowerCase()
       const firstBrewed = product.first_brewed.toLowerCase()
 
-      
       const nameMatch = productName.includes(query)
       const taglineMatch = tagline.includes(query)
 
-      
       const brewedMatch = firstBrewed === query
 
       return nameMatch || taglineMatch || brewedMatch
@@ -55,7 +52,7 @@ const Home = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <Shutter onClose={() => setShowHomepage(true)} />{' '}
-      {showHomepage && ( 
+      {showHomepage && (
         <>
           <Navbar />
           <div className="container mx-auto px-4 py-12">
@@ -97,6 +94,7 @@ const ProductCard = ({ item, truncateDescription }) => (
       />
       <div className="p-4">
         <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
+        <p className="text-gray-500 font-bold mb-2">{item.tagline}</p>
         <p className="text-gray-300 mb-4">
           {truncateDescription(item.description)}
         </p>
