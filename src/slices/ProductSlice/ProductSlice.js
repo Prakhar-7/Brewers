@@ -11,7 +11,7 @@ const initialState = {
 export const getDetails = createAsyncThunk('beer/fetchData', async () => {
   try {
     const res = await axios(url)
-    const detail = res.data // Adjust this line based on the actual structure
+    const detail = res.data 
     console.log(detail)
     return detail
   } catch (error) {
@@ -31,6 +31,7 @@ export const BeerSlice = createSlice({
         state.status = 'successful'
         state.product = action.payload
         console.log(state.product)
+        localStorage.setItem('beerProduct', JSON.stringify(state.product))
       })
       .addCase(getDetails.pending, (state) => {
         state.status = 'loading'
