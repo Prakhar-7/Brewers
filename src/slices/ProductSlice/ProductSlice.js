@@ -38,7 +38,7 @@ export const BeerSlice = createSlice({
       })
       .addCase(getDetails.rejected, (state, action) => {
         state.status = 'failed'
-        state.error = action.error.message // Set error message on failure
+        state.error = action.error.message 
       })
   },
 })
